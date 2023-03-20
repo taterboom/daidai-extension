@@ -1,0 +1,35 @@
+.table :where(th, td) {
+    white-space: initial;
+}
+
+.upload {
+    @apply flex justify-center items-center w-full
+}
+
+.upload-content {
+    @apply flex flex-col justify-center items-center w-full h-64 border-2 border-primary-content bg-primary text-primary-content border-dashed cursor-pointer
+}
+
+.upload-placeholder {
+    @apply flex flex-col justify-center items-center pt-5 pb-6 px-4
+}
+
+.upload-btn {
+    @apply mb-3 w-10 h-10
+}
+
+.upload-tips {
+    @apply mb-2 text-sm
+}
+
+.upload-input {
+    @apply hidden
+}
+
+.label {
+    @apply px-2
+}
+
+.btn {
+    @apply normal-case
+}

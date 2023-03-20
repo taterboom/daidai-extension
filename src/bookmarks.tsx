@@ -1,10 +1,13 @@
 import { useState } from "react"
 
+import "./index.css"
+
 function IndexPopup() {
   const [data, setData] = useState("")
 
   return (
     <div
+      className="bg-slate-500 text-primary"
       style={{
         display: "flex",
         flexDirection: "column",

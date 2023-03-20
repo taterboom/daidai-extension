@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+.handlebar {
+  @apply bg-main/80 backdrop-blur-sm overflow-hidden;
+}
+
+.handlebar-loose {
+  @apply bg-main/80 backdrop-blur-sm;
+}
+
+.panel {
+  @apply text-neutral-content bg-neutral/80 p-4 max-h-[85vh] overflow-y-auto;
+}
+
+.kbd {
+  @apply bg-base-content text-primary-content;
+}
+
+.squat {
+  animation-name: squat;
+  animation-duration: 1s;
+  animation-timing-function: steps(1);
+  animation-iteration-count: infinite;
+}
+
+.bounce-in-right {
+  -webkit-animation: bounce-in-right 0.3s both;
+  animation: bounce-in-right 0.3s both;
+}
+
+.bounce-in-left {
+	-webkit-animation: bounce-in-left 0.3s both;
+	        animation: bounce-in-left 0.3s both;
+}
+
+@keyframes squat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in-right {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  72% {
+    -webkit-transform: translateX(-16px);
+    transform: translateX(-16px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes bounce-in-left {
+    0% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+      }
+      70% {
+        -webkit-transform: translateX(calc(100% + 0.5rem));
+        transform: translateX(calc(100% + 0.5rem));
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+      }
+      92% {
+        -webkit-transform: translateX(calc(100% - 0.3rem));
+        transform: translateX(calc(100% - 0.3rem));
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+      }
+      100% {
+        -webkit-transform: translateX(calc(100%));
+        transform: translateX(calc(100%));
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+      }
+}
