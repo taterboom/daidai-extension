@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 
-import BookmarkImporter from "./BookmarkImporter"
+import BookmarkImporter from "./BookmarksImporter"
 import DaidaiObjectDeleter from "./DaidaiObjectDeleter"
 import {
   DaidaiObjectCreator,

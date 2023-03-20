@@ -1,5 +1,5 @@
 import clsx from "classnames"
-import React from "react"
+import React, { forwardRef } from "react"
 import { Link, LinkProps } from "react-router-dom"
 
 export type ButtonProps = {
@@ -10,20 +10,25 @@ export type ButtonProps = {
   HTMLButtonElement
 >
 
-const Button = ({
-  rounded = false,
-  className = "",
-  disableDefaultStyle = false,
-  ...props
-}: ButtonProps) => {
-  const btnClassName = clsx(
-    `btn`,
-    !disableDefaultStyle && `btn-ghost btn-sm`,
-    rounded && "btn-circle",
-    className
-  )
-  return <button {...props} className={btnClassName}></button>
-}
+const Button = forwardRef(
+  (
+    {
+      rounded = false,
+      className = "",
+      disableDefaultStyle = false,
+      ...props
+    }: ButtonProps,
+    ref: any
+  ) => {
+    const btnClassName = clsx(
+      `btn`,
+      !disableDefaultStyle && `btn-ghost btn-sm`,
+      rounded && "btn-circle",
+      className
+    )
+    return <button {...props} className={btnClassName} ref={ref}></button>
+  }
+)
 
 export type LinkButtonProps = React.PropsWithChildren<
   {

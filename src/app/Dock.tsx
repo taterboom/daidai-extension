@@ -3,6 +3,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { useFirstMountState, useLocalStorage, useMeasure } from "react-use"
 
 import Button, { LinkButton, LinkButtonProps } from "~components/Button"
+import ClickAway from "~components/ClickAway"
 import { Tooltip } from "~components/Tooltip"
 import {
   CarbonWorkspaceImport,
@@ -22,7 +23,6 @@ import {
   PANEL_SHORTCUTS,
   PanelConfig
 } from "./utils/panel"
-import { isExtension, isExtensionPopup } from "./utils/ua"
 
 const getGroupParent = (elem: HTMLElement): HTMLElement | null => {
   return !elem || elem === document.body
@@ -104,13 +104,18 @@ const Dock = (props: DockProps) => {
         </div>
       </div>
       <div className="tooltip absolute right-0 top-0" data-tip="menu">
-        <Button
-          className="text-base"
-          onClick={() => {
-            setShowAll(!showAll)
+        <ClickAway
+          onClickAway={() => {
+            setShowAll(false)
           }}>
-          {showAll ? <NavLogo /> : <NavLogoClosed />}
-        </Button>
+          <Button
+            className="text-base"
+            onClick={() => {
+              setShowAll(!showAll)
+            }}>
+            {showAll ? <NavLogo /> : <NavLogoClosed />}
+          </Button>
+        </ClickAway>
       </div>
     </div>
   )

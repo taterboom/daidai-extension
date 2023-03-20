@@ -64,14 +64,7 @@ export const DaidaiObjectCreatorInExtension = ({
     }
   }, [])
   const initialValue = useMemo(
-    () =>
-      currentTab
-        ? DaidaiObject.generateFromBookmark({
-            url: currentTab.url!,
-            title: currentTab.title || "",
-            tags: []
-          })
-        : null,
+    () => (currentTab ? DaidaiObject.generateFromUrl(currentTab.url!) : null),
     [currentTab]
   )
 

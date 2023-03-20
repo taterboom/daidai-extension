@@ -8,7 +8,7 @@ import type {
 import { nanoid } from "nanoid"
 
 import type { SerializedTagNode } from "../ObjectEditor/Tag/TagNode"
-import type { Bookmark } from "../utils/bookmarkHtml2json"
+import type { Bookmark } from "../utils/bookmarkConvert"
 
 function isSerializedHeadingNode(node: any): node is SerializedHeadingNode {
   return node.type === "heading"
@@ -53,6 +53,13 @@ class DaidaiObject {
           (tag) => `<span class="editor-tag" data-lexical-tag="${tag}"></span>`
         )
         .join("")}</p>`
+    })
+  }
+
+  static generateFromUrl(url: string): DaidaiObject {
+    return new DaidaiObject({
+      url: url,
+      contentHTML: ""
     })
   }
 

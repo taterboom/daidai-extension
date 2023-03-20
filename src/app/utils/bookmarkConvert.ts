@@ -1,4 +1,4 @@
-import DaidaiObject from "../store/DaidaiObject"
+import type DaidaiObject from "../store/DaidaiObject"
 
 export type Bookmark = {
   title: string
@@ -65,3 +65,23 @@ export function jsonToBookmarksHTML(tagData: Record<string, DaidaiObject[]>) {
 
   return str
 }
+
+export function bookmarkTreeNode2json(treeNode: chrome.bookmarks.BookmarkTreeNode) {
+  const result: Bookmark[] = []
+  function traverse(node: chrome.bookmarks.BookmarkTreeNode, tags: string[] = []) {
+    if (node.children) {
+      for (const childNode of node.children) {
+        traverse(childNode, node.title ? tags.concat(node.title) : tags)
+      }
+    } else {
+      result.push({
+        title: node.title,
+        url: node.url || "",
+        tags,
+      })
+    }
+  }
+  traverse(treeNode)
+  return result
+}
+

@@ -107,19 +107,15 @@ const SiteItem: React.FC<{
       {/* operation bar */}
       {!disable && (
         <div className="group-hover:opacity-100 opacity-0 transition-opacity pointer-events-none absolute right-1 top-1 flex handlebar backdrop-blur-sm">
-          <LinkButton
-            className="!btn-xs pointer-events-auto"
-            to={`/?panel=${PANEL_EDITOR[0]}&index=${index}`}
-            replace={shouldReplace(PANEL_EDITOR)}
-            title="edit"
-            onClick={(e) => {
-              if (isAnonymousDaidai(value.id)) {
-                toast("This cannot be updated, you can delete it.")
-                e.preventDefault()
-              }
-            }}>
-            <FluentDocumentPageTopLeft24Regular />
-          </LinkButton>
+          {!isAnonymousDaidai(value.id) && (
+            <LinkButton
+              className="!btn-xs pointer-events-auto"
+              to={`/?panel=${PANEL_EDITOR[0]}&index=${index}`}
+              replace={shouldReplace(PANEL_EDITOR)}
+              title="edit">
+              <FluentDocumentPageTopLeft24Regular />
+            </LinkButton>
+          )}
           <LinkButton
             className="!btn-xs pointer-events-auto"
             to={`/?panel=${PANEL_DELETER[0]}&index=${index}`}

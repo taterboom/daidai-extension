@@ -1,9 +1,9 @@
 {
-  "name": "promise-funny-fireant",
-  "displayName": "Promise funny fireant",
+  "name": "daidai",
+  "displayName": "daidai",
   "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
-  "author": "xueyong",
+  "description": "Manage your bookmarks with tags instead of folders",
+  "author": "taterboom",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
@@ -53,8 +53,9 @@
     "typescript": "4.9.4"
   },
   "manifest": {
-    "host_permissions": [
-      "https://*/*"
+    "permissions": [
+      "bookmarks",
+      "tabs"
     ]
   }
 }

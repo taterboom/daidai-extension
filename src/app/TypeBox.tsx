@@ -36,7 +36,7 @@ const TypeBox = () => {
   if (!text) return null
   return (
     <Portal>
-      <div className="fixed top-0 right-0 px-2 py-0.5 pointer-events-none bg-gray-100 rounded-bl-md border border-gray-200 backdrop-blur-sm">
+      <div className="fixed top-0 right-0 px-2 py-0.5 pointer-events-none bg-gray-100 text-primary rounded-bl-md border border-gray-200 backdrop-blur-sm">
         {text}
       </div>
     </Portal>
